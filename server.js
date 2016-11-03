@@ -10,6 +10,14 @@ app.use(express.static(__dirname + '/public'));
 // 	res.send('hello');
 // })
 
+app.use(function(req, res, next){
+	if(req.headers['x-forwarded-proto'] === 'http'){
+		next();
+	} else {
+		res.redirect('http://' + req.hostname + req.url);
+	}
+});
+
 app.listen(PORT, function(){
 	console.log('the magic happens on port: ' + PORT);
 });
