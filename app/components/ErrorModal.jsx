@@ -29,7 +29,7 @@ var ErrorModal = React.createClass({
 			</div>
 		);	
 
-		var $modal = $(ReactDOMServer.renderzToString(modalMarkUp));
+		var $modal = $(ReactDOMServer.renderToString(modalMarkUp));
 		$(ReactDOM.findDOMNode(this)).html($modal)
 
 		
